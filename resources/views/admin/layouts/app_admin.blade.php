@@ -4,19 +4,20 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- CSRF Token -->
+    {{-- CSRF Token --}}
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <!-- Scripts -->
+    {{-- Scripts --}}
     <script src="{{ asset('js/app.js') }}" defer></script>
 
-    <!-- Fonts -->
+    {{-- Fonts --}}
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
-    <!-- Styles -->
+    {{-- Styles --}}
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
 </head>
 
@@ -27,15 +28,16 @@
         <div>
             {{--@include ('layouts.header')--}}
             <div class="admin-menu">
-                <a href="{{route('admin.index')}}">Main</a>
-                <a href="{{route('admin.number.index')}}">Contact list</a>
+                <a href="{{route('admin.index')}}">Main dashboard</a>
+                <a href="{{route('admin.number.index')}}">Contact list (for edit)</a>
+                <a href="{{route('index')}}">Contact list (for read)</a>
             </div>
         </div>
 
 
         <div>
             <ul class="navbar-nav ml-auto">
-            <!-- Authentication Links -->
+            {{-- Authentication Links --}}
             @guest
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>

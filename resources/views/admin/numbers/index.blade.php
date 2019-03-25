@@ -9,7 +9,6 @@
             @slot('parent') Main @endslot
             @slot('active') Contact list @endslot
         @endcomponent
-
         <hr>
 
         <div class="row">
@@ -19,11 +18,12 @@
                 </div>
             </div>
         </div>
+        <hr>
 
-        <a href="{{route('admin.number.create')}}" class="btn btn-primary">Add contact</a>
+        <a href="{{route('admin.number.create')}}" class="btn btn-primary float-right">Add contact</a>
 
         {{-- Contact sheet --}}
-        <table class="table table-stripted">
+        <table class="table table-striped">
             <thead>
             <th>Number</th>
             <th>Contact name</th>

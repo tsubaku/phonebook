@@ -11,9 +11,13 @@
 |
 */
 
+/*
 Route::get('/', function () {
     return view('welcome');
 });
+*/
+
+Route::resource('/', 'PhonebookController');
 
 Auth::routes();
 
