@@ -4,20 +4,19 @@
     <div class="container">
 
         @component('admin.components.breadcrumb')
-            @slot('title') Редактирование категории @endslot
-            @slot('parent') Главная @endslot
-            @slot('active') Категории @endslot
+            @slot('title') Edit contact @endslot
+            @slot('parent') Main @endslot
+            @slot('active') Contact list @endslot
+        @endcomponent
+        <hr>
+        <form class="form-horizontal" action="{{route('admin.number.update', $number)}}" method="post">
+            <input type="hidden" name="_method" value="put">
 
-            <hr>
-            <form class="form-horizontal" action="{{route('admin.category.update', $category)}}" method="post">
-                <input type="hidden" name="_method" value="put">
-                <!-- Передать токен, для этого есть хелпер в блейде:-->
-                {{ csrf_field() }}
-                {{-- csrf_token() --}}
+            {{ csrf_field() }}
 
-                {{-- Form include--}}
-                @include('admin.categories.partials.form')
-            </form>
+            {{-- Form include --}}
+            @include('admin.numbers.partials.form')
+        </form>
 
     </div>
 @endsection

@@ -9,10 +9,11 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 
+    <!-- Fonts -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -26,7 +27,8 @@
         <div>
             {{--@include ('layouts.header')--}}
             <div class="admin-menu">
-                <a href="{{route('admin.index')}}">Главная</a>
+                <a href="{{route('admin.index')}}">Main</a>
+                <a href="{{route('admin.number.index')}}">Contact list</a>
             </div>
         </div>
 

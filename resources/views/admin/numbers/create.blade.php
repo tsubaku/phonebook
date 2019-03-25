@@ -7,16 +7,16 @@
             @slot('title') Создание категории @endslot
             @slot('parent') Главная @endslot
             @slot('active') Категории @endslot
+        @endcomponent
+        <hr>
 
-            <hr>
-            <!-- Указываем именованный маршрут: запись в базу, функция store -->
-            <form class="form-horizontal" action="{{route('admin.category.store')}}" method="post">
-                <!-- Передать токен, для этого есть хелпер в блейде:-->
-                {{ csrf_field() }}
+        <form class="form-horizontal" action="{{route('admin.number.store')}}" method="post">
 
-                {{-- Form include--}}
-                @include('admin.categories.partials.form')
-            </form>
+            {{ csrf_field() }}
+
+            {{-- Form include --}}
+            @include('admin.numbers.partials.form')
+        </form>
 
     </div>
 @endsection
