@@ -16,7 +16,8 @@ class NumberController extends Controller
     public function index()
     {
         return view('admin.numbers.index', [
-            'numbers' => Number::paginate(10), //max 10 contact on the page
+            //'numbers' => Number::paginate(10), //max 10 contact on the page
+            'numbers' => Number::all()->sortBy('name'),  //sorted
             'count_numbers' => Number::count() //amount contacts
         ]);
     }

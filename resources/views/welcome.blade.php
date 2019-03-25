@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Laravel</title>
+    <title>Phone book</title>
 
     {{-- Fonts --}}
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
@@ -34,6 +34,12 @@
     <div class="row">
         <div class="col-md-12">
 
+            <p>Search</p>
+            <input type="text" name="contactName" id="contactName" placeholder="Contact Name"/>
+            <input type="text" name="contactNumber" id="contactNumber" placeholder="Contact Number"/>
+            <input type="button" name="search" id="search" class="bnt btn-primary"
+            onclick="search()">
+
             {{-- Contact sheet --}}
             <table class="table table-striped">
                 <thead>
@@ -56,7 +62,7 @@
                 <tr>
                     <td colspan="3">
                         <ul class="pagination pull-right">
-                            {{$numbers->links()}}
+                            {{--$numbers->links()--}}
                         </ul>
 
                     </td>

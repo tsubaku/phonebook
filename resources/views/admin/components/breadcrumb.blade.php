@@ -1,6 +1,6 @@
 <h2>{{$title}}</h2>
 <ol class="breadcrumb">
-    {{-- Роут - именованный маршрут, формирующий ссылку на главную страницу сайта --}}
+    {{-- Link to main page --}}
     <li><a href="{{route('admin.index')}}">{{$parent}}</a> </li>
     <li class="active">{{$active}}</li>
 
