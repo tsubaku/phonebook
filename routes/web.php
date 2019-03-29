@@ -30,8 +30,8 @@ Route::group(['prefix'=>'admin', 'namespace'=>'Admin', 'middleware'=> ['auth']],
     Route::get('/', 'DashboardController@dashboard')->name('admin.index');
     //Numbers
     Route::resource('/number', 'NumberController', ['as'=>'admin']);
-
-
-
-
 });
+
+/* AJAX запросы */
+Route::post('/search', 'Ajax\AjaxController@search');
+//Route::post('/validation', 'Ajax\CartController@validation');

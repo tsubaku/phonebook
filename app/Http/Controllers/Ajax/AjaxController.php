@@ -5,19 +5,27 @@ namespace App\Http\Controllers\Ajax;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
+use App\Number;
 
 class AjaxController extends Controller
 {
-
-
+    /**
+     * Search for a contact by partially entered number and/or contact name.
+     * @param Request $request
+     */
     public function search(Request $request)
     {
-        $post1 = $request->all();
-        $name = $post1['name']; //
+        $post = $request->all();
+        $contactName = $post['contactName'];
+        $contactNumber = $post['contactNumber'];
+
+        $numbers = Number::where('number', 'LIKE', '%'.$contactNumber.'%')
+            ->where('name', 'LIKE', '%'.$contactName.'%')
+            ->get();  //sorted
 
         echo json_encode(array(
-            'post1' => $post1,
-            'name' => $name)
+                'numbers' => $numbers
+            )
         );
     }
 
