@@ -21,10 +21,12 @@ class AjaxController extends Controller
 
         $numbers = Number::where('number', 'LIKE', '%'.$contactNumber.'%')
             ->where('name', 'LIKE', '%'.$contactName.'%')
-            ->get();  //sorted
+            ->get();                                        //sorted contacts
+        $amount_numbers=sizeof($numbers);                   //amount contacts
 
         echo json_encode(array(
-                'numbers' => $numbers
+                'numbers' => $numbers,
+                'amount_numbers' => $amount_numbers
             )
         );
     }

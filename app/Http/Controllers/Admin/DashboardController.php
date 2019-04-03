@@ -15,7 +15,7 @@ class DashboardController extends Controller
     {
         return view('admin.dashboard', [
             'numbers' => Number::lastNumbers(5),
-            'count_numbers' => Number::count(),
+            'amount_numbers' => Number::count(),
         ]);
     }
 }

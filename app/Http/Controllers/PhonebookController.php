@@ -17,7 +17,7 @@ class PhonebookController extends Controller
         return view('welcome', [
             //'numbers' => Number::paginate(10)->sortBy('name'), //max 10 contact on the page
             'numbers' => Number::all()->sortBy('name'),  //sorted
-            'count_numbers' => Number::count()                   //amount contacts
+            'amount_numbers' => Number::count()                   //amount contacts
         ]);
     }
 

@@ -79,8 +79,11 @@
                     </tfoot>
                 </table>
 
-                <p><span class="label label-primary">Total numbers: {{$count_numbers}}</span></p>
-
+                <p>
+                    <span class="label label-primary">Total numbers:
+                        <span id="amountNumbers">{{$amount_numbers}}</span>
+                    </span>
+                </p>
             </div>
         </div>
 
