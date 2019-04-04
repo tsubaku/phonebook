@@ -6,7 +6,7 @@
         {{-- breadcrumb --}}
         @component('admin.components.breadcrumb')
             @slot('title') Phone book @endslot
-            @slot('parent') Main @endslot
+            @slot('parent') Main dashboard @endslot
             @slot('active') Contact list @endslot
         @endcomponent
         <hr>

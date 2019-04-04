@@ -9,14 +9,13 @@ Custom style
     padding-left: 5px;
 }
 
-.admin-menu a{
+.admin-menu a {
     padding-right: 15px;
 }
 
 ol li {
     padding-left: 5px;
 }
-
 
 /***********/
 html, body {
@@ -69,4 +68,11 @@ html, body {
 .m-b-md {
     margin-bottom: 30px;
 }
-/***********/
+
+/* Validation messages */
+.alert li {
+    text-align: left;
+}
+
+
+

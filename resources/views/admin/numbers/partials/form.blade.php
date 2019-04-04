@@ -2,20 +2,30 @@
 <div class="row">
     <div class="col-md-6 col-sm-8 col-xs-12">
 
-        <label for="number">Number</label>
+        <div class="form-group">
+            <label for="number">Number</label>
+            <input type="text" class="form-control" name="number" placeholder="Number"
+                   value="{{$number->number ?? ""}}">
+        </div>
 
-        <input type="text" class="form-control" name="number" placeholder="Number"
-               value="{{$number->number ?? ""}}" required>
+        <div class="form-group">
+            <label for="name">Name</label>
 
-        <label for="name">Name</label>
-        <input type="text" class="form-control" name="name" placeholder="Name"
-               value="{{$number->name ?? ""}}" required>
+            <input type="text" class="form-control" name="name" placeholder="Name"
+                   value="{{$number->name ?? ""}}">
+        </div>
 
-        <label for="slug">Slug</label>
-        <input type="text" class="form-control" name="slug" placeholder="Automatic generation"
-               value="{{$number->slug ?? ""}}" readonly>
-
-        <hr>
+        @if (count($errors))
+            <div class="form-group">
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            </div>
+        @endif
 
         <input class="btn btn-primary" type="submit" value="Save">
     </div>

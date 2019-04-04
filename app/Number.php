@@ -2,22 +2,36 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
-
-class Number extends Model
+class Number extends BaseModel
 {
-    //Mass Assigned
+
+    /**
+     * Mass Assigned
+     *
+     * @var array
+     */
     protected $fillable = ['number', 'name'];
 
-    //Mutators
-    public function setSlugAttribute($value)
-    {
-        //todo mb_substr не вытаскивает title, если он на китайском, пока что добавил рандомную часть
-        $this->attributes['slug'] = Str::slug(mb_substr($this->name, 0, 40) . "-" . \Carbon\Carbon::now()->format('dmyHi'), '-') . "-" . $dateOfBirth = rand(101, 999);
-    }
 
-    //returns n results
-    public function scopeLastNumbers($query, $count){
+    /**
+     * returns n results
+     *
+     * @param $query
+     * @param $count
+     * @return mixed
+     */
+    public function scopeLastNumbers($query, $count)
+    {
         return $query->orderBy('created_at', 'desc')->take($count)->get();
     }
+
+
+    /**
+     * Validation rules
+     * @var array
+     */
+    protected static $rules = [
+        'number' => 'required|unique:numbers|numeric',
+        'name' => 'required|alpha_dash'
+    ];
 }
