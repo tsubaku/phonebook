@@ -4,9 +4,9 @@
     <div class="container">
 
         @component('admin.components.breadcrumb')
-            @slot('title') Edit contact @endslot
-            @slot('parent') Main @endslot
-            @slot('active') Contact list @endslot
+            @slot('title') @lang('admin_number.phoneBook') @endslot
+            @slot('parent') @lang('admin_number.mainDashboard') @endslot
+            @slot('active') @lang('admin_number.contactList') @endslot
         @endcomponent
         <hr>
 

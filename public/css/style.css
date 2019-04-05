@@ -74,5 +74,13 @@ html, body {
     text-align: left;
 }
 
+/* Login form */
+.card {
+    min-width: 400px;
+}
 
 
+/* */
+table {
+    max-width: 600px;
+}

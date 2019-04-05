@@ -11,26 +11,15 @@
 |
 */
 
-/*
-Route::get('/', function () {
-    return view('welcome');
-});
-*/
-
 Route::resource('/', 'PhonebookController');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-
-
-/* Admin panel */
+// Admin panel
 Route::group(['prefix'=>'admin', 'namespace'=>'Admin', 'middleware'=> ['auth']], function () {
-    //Dashboard
-    Route::get('/', 'DashboardController@dashboard')->name('admin.index');
-    //Numbers
+    //Dashboard (Edit phone book)
     Route::resource('/number', 'NumberController', ['as'=>'admin']);
 });
 
-/* AJAX requests */
+// AJAX requests
 Route::post('/search', 'Ajax\AjaxController@search');

@@ -14,19 +14,6 @@ class Number extends BaseModel
 
 
     /**
-     * returns n results
-     *
-     * @param $query
-     * @param $count
-     * @return mixed
-     */
-    public function scopeLastNumbers($query, $count)
-    {
-        return $query->orderBy('created_at', 'desc')->take($count)->get();
-    }
-
-
-    /**
      * Validation rules
      * @var array
      */

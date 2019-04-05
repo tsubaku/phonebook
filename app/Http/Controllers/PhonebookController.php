@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use App\Number;
 use Illuminate\Http\Request;
 
+/**
+ * Class PhonebookController - only read contacts and search.
+ * @package App\Http\Controllers
+ */
 class PhonebookController extends Controller
 {
     /**
@@ -14,10 +18,9 @@ class PhonebookController extends Controller
      */
     public function index()
     {
-        return view('welcome', [
-            //'numbers' => Number::paginate(10)->sortBy('name'), //max 10 contact on the page
+        return view('phonebook', [
             'numbers' => Number::all()->sortBy('name'),  //sorted
-            'amount_numbers' => Number::count()                   //amount contacts
+            'amount_numbers' => Number::count(),                //amount contacts
         ]);
     }
 
