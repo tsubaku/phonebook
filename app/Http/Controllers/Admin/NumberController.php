@@ -17,7 +17,6 @@ class NumberController extends Controller
     public function index()
     {
         return view('admin.numbers.index', [
-            //'numbers' => Number::paginate(10),                //max 10 contact on the page
             'numbers' => Number::all()->sortBy('name'),  //sorted
             'amount_numbers' => Number::count()                 //amount contacts
         ]);
@@ -41,27 +40,12 @@ class NumberController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     * @throws \Illuminate\Validation\ValidationException
      */
     public function store(Request $request)
     {
-        /* before Laravel 5.5 stile:
-        $this->validate(request(), [
-            'number' => 'required|unique:numbers|numeric',
-            'name' => 'required|alpha_dash'
-        ]);
-        Number::create($request->all());
-        */
-
-        /*
-        $post = request()->validate([
-            'number' => 'required|unique:numbers|numeric',
-            'name' => 'required|alpha_dash'
-        ]);
-        \App\Number::forceCreate($post);
-        */
-
         $this->validate($request, Number::getRules());  // Validate
         Number::create($request->all());                // Validation successful -> create number
 
@@ -84,8 +68,8 @@ class NumberController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Number $number
-     * @return \Illuminate\Http\Response
+     * @param Number $number
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function edit(Number $number)
     {
@@ -99,9 +83,10 @@ class NumberController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request $request
-     * @param  \App\Number $number
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @param Number $number
+     * @return \Illuminate\Http\RedirectResponse
+     * @throws \Illuminate\Validation\ValidationException
      */
     public function update(Request $request, Number $number)
     {
@@ -119,8 +104,8 @@ class NumberController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Number $number
-     * @return \Illuminate\Http\Response
+     * @param Number $number
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function destroy(Number $number)
     {
